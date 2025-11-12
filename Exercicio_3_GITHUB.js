@@ -55,7 +55,7 @@ function adicionarLivro() {
             console.log("O título não pode ser vazio.");
             return mostrarMenu();
         }
-    rl.question("Autor do livro: ", (autor) => {
+    rl.question("Autor(a) do livro: ", (autor) => {
         if (!autor.trim()) {
             console.log("O autor não pode ser vazio.");
             return mostrarMenu();
@@ -66,7 +66,7 @@ function adicionarLivro() {
                 console.log("Quantidade inválida.");
                 return mostrarMenu();
             }
-            estoque.push({ titulo, quantidade });
+            estoque.push({ titulo, autor, quantidade });
             console.log(`Livro "${titulo}" adicionado com sucesso!`);
             mostrarMenu();
         });
@@ -116,7 +116,7 @@ function listarLivros() {
     } else {
         console.log("\n📚 Livros disponíveis:");
         estoque.forEach((livro, index) => {
-            console.log(`${index + 1}. ${livro.titulo} - Quantidade: ${livro.quantidade}`);
+            console.log(`${index + 1}. ${livro.titulo} - Autor(a): ${livro.autor} - Quantidade: ${livro.quantidade}`);
         });
     }
     mostrarMenu();
@@ -124,3 +124,4 @@ function listarLivros() {
 
 // Iniciar o sistema
 mostrarMenu();
+
